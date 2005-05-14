@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : app.xml
+    Created on : 6 de febrero de 2005, 17:31
+    Author     : jose
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE app PUBLIC '-//Sun Microsystems Inc.//DTD Application Server 8.0 Domain//EN' 'app.dtd'>
+
+<Aplicacion nombre="Nueva Aplicacion">
+<CasoUso id="CasoUso001" init="ListaEntidades" >
+    <Ventana id="ListaEntidades">
+        <Panel className="com.application.widgets.SplitPane">
+            <Panel className="com.application.widgets.PanelBuscarUno"/>
+            <Panel className="com.application.widgets.TableBean">
+               <Propiedad name="varSelected" value="UnValor"/>
+            </Panel>   
+        </Panel>    
+        <Operaciones>
+            <Operacion 
+                nombre="Buscar Estaciones" 
+                label="Buscar Estaciones" 
+                icon="tasks_tsk.gif"
+                aviso="¿Quieres obtener las subestaciones?"
+                className="metro.servicios.BeanFinder" >
+                  <Opcion res="OK" dest="main2" />
+                  <Opcion res="Fallo" dest="xxxx" />
+                  <Propiedad name="bean" value="metro.model.Estacion"/>
+            </Operacion>
+            <Operacion 
+                nombre="Buscar Vestibulos" 
+                label="Buscar Vestibulo" 
+                icon="tasks_tsk.gif"
+                className="metro.servicios.BeanFinder" >
+                  <Opcion res="OK" dest="main2" />
+                  <Opcion res="Fallo" dest="xxxx" />
+                  <Propiedad name="bean" value="metro.model.Vestibulo"/>
+            </Operacion>
+            <Operacion 
+                nombre="Buscar Maquinas" 
+                label="Buscar Maquina" 
+                icon="tasks_tsk.gif"
+                visible="no"
+                className="metro.servicios.BeanFinder" >
+                  <Opcion res="OK" dest="main2" />
+                  <Opcion res="Fallo" dest="xxxx" />
+                  <Propiedad name="bean" value="metro.model.Maquina"/>
+            </Operacion>
+            <Operacion 
+                nombre="Detalle Seleccionados" 
+                label="Buscar Maquina" 
+                visible="UnValor"
+                icon="tasks_tsk.gif">
+                  <Opcion dest="UnaEntidad" />                  
+            </Operacion>
+        </Operaciones>
+    </Ventana>    
+    
+    <Ventana id="UnaEntidad">
+        <Panel className="com.application.widgets.PanelBeanForm"/>
+
+        <Operaciones>
+            <Operacion 
+                nombre="Vuelta Lista" 
+                label="Buscar Maquina" 
+                icon="tasks_tsk.gif">
+                  <Opcion dest="FIRST" />                  
+            </Operacion>
+
+        </Operaciones>
+     </Ventana>       
+</CasoUso>
+
+</Aplicacion>
